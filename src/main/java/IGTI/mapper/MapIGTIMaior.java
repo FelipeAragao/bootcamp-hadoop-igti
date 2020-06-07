@@ -11,6 +11,6 @@ import java.io.IOException;
 
 public class MapIGTIMaior extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> {
     public void map(LongWritable longWritable, Text text, OutputCollector<Text, Text> outputCollector, Reporter reporter) throws IOException {
-
+        outputCollector.collect(new Text("1"), new Text((text.toString().split("\\t"))[1]));
     }
 }

@@ -27,8 +27,8 @@ public class ReduceIGTI extends MapReduceBase implements Reducer<Text, Text, Tex
                 paisObitos = campos[0];
             }
         }
-        strSaida = "Casos: " + String.valueOf(maiorCasos) + " em " + paisCasos + ".";
-        strSaida += "Obitos: " + String.valueOf(maiorObitos) + " em " + paisObitos + ".";
+        strSaida = String.valueOf(maiorCasos) + "|" + paisCasos + "|";
+        strSaida += String.valueOf(maiorObitos) + "|" + paisObitos;
 
         value.set(strSaida);
         output.collect(key, value);
