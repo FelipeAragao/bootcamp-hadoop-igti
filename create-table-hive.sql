@@ -8,8 +8,7 @@ casosAcumulados int,
 novosObitos int,
 obitosAcumulados int
 )
-COMMENT ‘Dados Covid’
 ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ‘,’
-LINES TERMINATED BY ‘\n’
-STORED AS TEXTFILE LOCATION '/Desafio';
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE LOCATION '/Desafio/dados_covid';
