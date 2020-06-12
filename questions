@@ -1,0 +1,15 @@
+
+Q-8.
+
+hive> select count(*) from dadoscovid;
+17705
+Time taken: 30.904 seconds, Fetched: 1 row(s)
+
+========================================================================================================================
+
+Q-9.
+hive> select descPais, count(*) from dadoscovid where descPais in ('Brazil', 'Uruguay') group by descPais;
+Brazil	92
+Uruguay	74
+Time taken: 27.032 seconds, Fetched: 2 row(s)
+
