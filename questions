@@ -1,15 +1,23 @@
 
-Q-8.
-
+8. Execute uma sentença SQL que conte todos os registros da tabela DadosCovid. Para isso utilize a função count(*) do SQL. Anote o resultado.
 hive> select count(*) from dadoscovid;
 17705
 Time taken: 30.904 seconds, Fetched: 1 row(s)
 
-========================================================================================================================
 
-Q-9.
+9. Execute uma sentença SQL que verifique quantas comunicações os países Uruguay e Brazil fizeram cada um durante o período de apuração do arquivo. Lembre-se, cada linha do arquivo é uma comunicação. Para isso, utilize a cláusula where. Anote o resultado.
 hive> select descPais, count(*) from dadoscovid where descPais in ('Brazil', 'Uruguay') group by descPais;
 Brazil	92
 Uruguay	74
 Time taken: 27.032 seconds, Fetched: 2 row(s)
 
+
+10. Execute a seguinte sentença: select avg(novosCasos) from DadosCovid where descPais = “France”; Anote o resultado.
+
+11. Execute uma sentença que apure quantos novos casos e quantos novos óbitos foram comunicadas no dia 26/05/2020, considerando todos os países. Anote o resultado.
+
+12. Execute o seguinte comando: describe extended DadosCovid. Copie o resultado apresentado em tela.
+
+13. Execute a sentença: select concat(dataOcorrencia, “ “, siglaPais, “ “, descPais) from DadosCovid where novosCasos = 501; Anote o resultado.
+
+14. Execute a sentença: select região, count(1) from DadosCovid group by regiao order by regiao; Anote os resultados.
