@@ -13,11 +13,44 @@ Time taken: 27.032 seconds, Fetched: 2 row(s)
 
 
 10. Execute a seguinte sentença: select avg(novosCasos) from DadosCovid where descPais = “France”; Anote o resultado.
+1141.632
 
 11. Execute uma sentença que apure quantos novos casos e quantos novos óbitos foram comunicadas no dia 26/05/2020, considerando todos os países. Anote o resultado.
 
+select sum(novoscasos) as sum_novoscasos,
+    sum(novosobitos) as sum_novosobitos
+    from dadoscovid
+    where dataocorrencia LIKE '2020-05-26%';
+
+99023	1493
+
 12. Execute o seguinte comando: describe extended DadosCovid. Copie o resultado apresentado em tela.
+hive> describe extended dadoscovid;
+OK
+dataocorrencia      	string
+siglapais           	string
+descpais            	string
+regiao              	string
+novoscasos          	int
+casosacumulados     	int
+novosobitos         	int
+obitosacumulados    	int
+
+Detailed Table Information	Table(tableName:dadoscovid, dbName:dbdesafio, owner:igti, createTime:1591927891, lastAccessTime:0, retention:0, sd:StorageDescriptor(cols:[FieldSchema(name:dataocorrencia, type:string, comment:null), FieldSchema(name:siglapais, type:string, comment:null), FieldSchema(name:descpais, type:string, comment:null), FieldSchema(name:regiao, type:string, comment:null), FieldSchema(name:novoscasos, type:int, comment:null), FieldSchema(name:casosacumulados, type:int, comment:null), FieldSchema(name:novosobitos, type:int, comment:null), FieldSchema(name:obitosacumulados, type:int, comment:null)], location:hdfs://localhost:54310/Desafio/dados_covid, inputFormat:org.apache.hadoop.mapred.TextInputFormat, outputFormat:org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat, compressed:false, numBuckets:-1, serdeInfo:SerDeInfo(name:null, serializationLib:org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe, parameters:{serialization.format=,, line.delim=\n, field.delim=,}), bucketCols:[], sortCols:[], parameters:{}, skewedInfo:SkewedInfo(skewedColNames:[], skewedColValues:[], skewedColValueLocationMaps:{}), storedAsSubDirectories:false), partitionKeys:[], parameters:{totalSize=929317, numRows=0, rawDataSize=0, numFiles=1, transient_lastDdlTime=1591929379, bucketing_version=2}, viewOriginalText:null, viewExpandedText:null, tableType:MANAGED_TABLE, rewriteEnabled:false, catName:hive, ownerType:USER)
+Time taken: 0.101 seconds, Fetched: 10 row(s)
+
 
 13. Execute a sentença: select concat(dataOcorrencia, “ “, siglaPais, “ “, descPais) from DadosCovid where novosCasos = 501; Anote o resultado.
+2020-03-11T00:00:00Z ES Spain
+Time taken: 0.379 seconds, Fetched: 1 row(s)
 
 14. Execute a sentença: select região, count(1) from DadosCovid group by regiao order by regiao; Anote os resultados.
+OK
+	118
+AFRO	3417
+AMRO	4079
+EMRO	1816
+EURO	5431
+SEARO	970
+WPRO	1874
+Time taken: 51.557 seconds, Fetched: 7 row(s)
