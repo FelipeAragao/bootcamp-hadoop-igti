@@ -1,7 +1,15 @@
-CREATE TABLE IF NOT EXISTS employee ( eid int, name String,
-salary String, destination String)
-COMMENT ‘Employee details’
+CREATE TABLE IF NOT EXISTS DadosCovid (
+dataOcorrencia String,
+siglaPais String,
+descPais String,
+regiao String,
+novosCasos int,
+casosAcumulados int,
+novosObitos int,
+obitosAcumulados int
+)
+COMMENT ‘Dados Covid’
 ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ‘\t’
+FIELDS TERMINATED BY ‘,’
 LINES TERMINATED BY ‘\n’
-STORED AS TEXTFILE;
+STORED AS TEXTFILE LOCATION '/Desafio';
